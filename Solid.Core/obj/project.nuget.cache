@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "j1NrueKzRgkCPlkihoNeAzNhd3yAbvlayTs2LHE1cTABC2qcluil1Zpn0TK8qYFnTaOJvjl2a7tgY+2G1W82sw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\WorkerServer\\Solid.Core\\Solid.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.16\\microsoft.windowsdesktop.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.16\\microsoft.netcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.16\\microsoft.aspnetcore.app.ref.7.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}
