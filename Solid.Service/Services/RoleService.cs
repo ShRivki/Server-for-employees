@@ -28,7 +28,13 @@ namespace Solid.Service.Services
 
         public async Task<Role> PostRoleAsync(Role value)
         {
-            return await _RoleRepository.PostAsync(value);
+          List<Role> a= (List<Role>)await _RoleRepository.GetAsync();
+            var b=a.Find(x=>x.Name==value.Name/*&& x.StartDateRole.Equals(value.StartDateRole)*/);
+            if(b==null)
+                 return await _RoleRepository.PostAsync(value);
+            else
+                return null;
+
         }
 
         public async Task<Role> PutRoleAsync(int id, Role value)

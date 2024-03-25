@@ -12,12 +12,12 @@ namespace Solid.Core.Entities
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
+        public string Password { get; set; }
         public string Identity { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime DateOfBirth { get; set;}
         public Gender Gender { get; set; }
         public bool Active { get; set; }
-        public List<Role> Roles { get; set; }
+        public List<EmployeeRole> Roles { get; set; }
     }
 }

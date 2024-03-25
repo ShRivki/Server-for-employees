@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Solid.API.models;
 using Solid.Core.Entities;
 using Solid.Core.Services;
 using Solid.Service.Services;
@@ -12,11 +14,11 @@ namespace Server.Controllers
     public class RoleController : ControllerBase
     {
         private readonly IRoleService _RoleService;
-        //private readonly IMapper _mapper;
-        public RoleController(IRoleService ds)
+        private readonly IMapper _mapper;
+        public RoleController(IRoleService ds, IMapper mapper)
         {
             _RoleService = ds;
-            //_mapper = mapper;
+            _mapper = mapper;
         }
         // GET: api/<RoleController>
         [HttpGet]
@@ -38,20 +40,20 @@ namespace Server.Controllers
 
         // POST api/<RoleController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Role value)
+        public async Task<ActionResult> Post([FromBody] RolePostModel value)
         {
-            //var article = _mapper.Map<Article>(value);
-            var res = await _RoleService.PostRoleAsync(value);
+            var r = _mapper.Map<Role>(value);
+            var res = await _RoleService.PostRoleAsync(r);
             //var resDto = _mapper.Map<ArticleDto>(res);
-            return res != null ? Ok(value) : NotFound(value);
+            return res != null ? Ok(value) : NotFound("התפקיד כבר קיים");
         }
 
         // PUT api/<RoleController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] Role value)
+        public async Task<ActionResult> Put(int id, [FromBody] RolePostModel value)
         {
-            // var article = _mapper.Map<Article>(value);
-            var res = await _RoleService.PutRoleAsync(id, value);
+             var r = _mapper.Map<Role>(value);
+            var res = await _RoleService.PutRoleAsync(id, r);
             // var resDto = _mapper.Map<ArticleDto>(res);
             return res != null ? Ok(res) : NotFound(res);
         }

@@ -19,13 +19,15 @@ namespace Solid.Data.Repositories
 
         public async Task<IEnumerable<Employee>> GetAsync()
         {
-            return await _context.Employees.ToListAsync();
+            var list= await _context.Employees.Include(x=>x.Roles).ThenInclude(role => role.Role).ToListAsync();
+            return list;
         }
 
         public async Task<Employee> GetAsync(int id)
         {
-            Employee employee = new Employee();
+          // Employee employee = new Employee();
             return await _context.Employees.FindAsync(id);
+            
         }
 
         public async Task<Employee> PostAsync(Employee value)
@@ -60,8 +62,8 @@ namespace Solid.Data.Repositories
             employee = await _context.Employees.FindAsync(id);
             if (employee != null)
             {
-                _context.Employees.Remove(employee);
-                await _context.SaveChangesAsync();
+                employee.Active = false;
+                 await _context.SaveChangesAsync();
             }
             return employee;
         }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xRcpGDKJ8rNCp8+0S1tp+2KhfqAeBmCdRJ8tV2ix4WNkhkFGLPLjsSqRlDkzqXt3KBdc3rw1COyKen2/lFfdEw==",
+  "dgSpecHash": "8xLW6fluyxuki+R3wlKY6H3m8zWpolBKBhJQHhl7h/dg26VXd+uC5byfTVGTvUOrdrri903MIlglF39GlOkXKw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\WorkerServer\\Server\\Solid.API.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\‏‏WorkerServer - עותק\\Server\\Solid.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

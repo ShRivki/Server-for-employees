@@ -13,6 +13,7 @@ namespace Solid.Data
     {
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Role> Roles{ get; set; }
+        public DbSet<EmployeeRole> EmployeeRole{ get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // optionsBuilder.UseSqlServer("server=(localdb)\\sqlServer;name=sample_db;");
