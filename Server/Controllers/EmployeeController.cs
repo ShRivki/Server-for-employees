@@ -15,11 +15,13 @@ namespace Server.Controllers
     {
         // GET: api/<EmployeeController>
         private readonly IEmployeeService _EmployeeService;
+        private readonly IRoleService _RoleService;
         private readonly IMapper _mapper;
-        public EmployeeController(IEmployeeService ds, IMapper mapper)
+        public EmployeeController(IEmployeeService ds,IRoleService roleService, IMapper mapper)
         {
             _EmployeeService = ds;
             _mapper = mapper;
+            _RoleService = roleService;
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EmployeeDto>>> Get()
@@ -71,8 +73,26 @@ namespace Server.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] EmployeePostModel value)
         {
-            var Employee= _mapper.Map<Employee>(value);
-            var res = await _EmployeeService.PostEmployeeAsync(Employee);
+           
+            
+            var list = new List<EmployeeRole>();
+            foreach (var role in value.Roles)
+            {
+                var r = await _RoleService.GetRoleByIdAsync(role.RoleId);
+                if (r is null)
+                {
+                    return NotFound();
+                }
+                EmployeeRole e= new EmployeeRole();
+                e.IsManagement = role.IsManagement;
+                e.Role = r;
+                e.RoleId= role.RoleId;
+                e.StartDate = role.StartDate;
+                list.Add(e);
+            }
+            var employee = _mapper.Map<Employee>(value);
+            employee.Roles = list;
+            var res = await _EmployeeService.PostEmployeeAsync(employee);
             var resDto = _mapper.Map<EmployeeDto>(res);
             return res != null ? Ok(resDto) : NotFound(resDto);
         }

@@ -5,7 +5,7 @@ namespace Solid.API.models
     public class EmployeeRolePostModel
     {
       
-        public RolePostModel Role { get; set; }
+        public int RoleId { get; set; }
         public bool IsManagement { get; set; }
         public DateTime StartDate { get; set; }
     }
